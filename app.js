@@ -184,11 +184,8 @@ function renderSentimentResult(sentimentData) {
 
 // Analytics Logging
 async function logAnalyticsData(reviewText, sentimentLabel, confidence, metadata) {
-    // Skip if no API key provided
-    if (!userApiKey || !userApiKey.trim()) {
-        console.log('[Analytics] Skipped - no API key');
-        return;
-    }
+    // ВСТАВЬТЕ СЮДА ВАШ WEB APP URL
+    const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyLgUTvURpOYM5-DEr9fqa5ECkXQLwA94a430GYsuh_edYJnPsUIbRA5ByaLiT3WYDN/exec';
     
     try {
         const timestamp = new Date().toISOString();
@@ -209,10 +206,19 @@ async function logAnalyticsData(reviewText, sentimentLabel, confidence, metadata
             sentiment_confidence: confidence
         };
         
-        console.log('[Analytics] Data prepared:', analyticsPayload);
+        console.log('[Analytics] Sending to Google Sheets:', analyticsPayload);
         
-        // TODO: Implement actual Google Sheets API call here
-        // For now, just logging to console
+        // Отправка данных в Google Sheets
+        const response = await fetch(GOOGLE_SHEETS_URL, {
+            method: 'POST',
+            mode: 'no-cors', // Важно для Google Apps Script
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(analyticsPayload)
+        });
+        
+        console.log('[Analytics] Data sent successfully');
         
     } catch (err) {
         console.error('[Analytics] Logging failed:', err);
