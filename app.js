@@ -2,7 +2,7 @@
 import { pipeline } from "https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.6/dist/transformers.min.js";
 
 // Google Sheets URL
-const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyk3-wEI1sI5WmvflYV5CP0YsEklSV9NOuuGyPapa6V56PSefKYIHyLIf-ZhNXKmoR7/exec';
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwO7Q0T5O4FBDDixRkEsh8_9knldVaGxZGLqu7664grgsj6nqJ_iYL6ngzM64VzLO5P/exec';
 
 let reviews = [];
 let model = null;
