@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sentiment Analyzer</title>
+    <title>Sentiment Analyzer - Business Actions</title>
     
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -105,6 +105,7 @@
             padding: 30px;
             border: 2px solid #000000;
             border-radius: 4px;
+            margin-bottom: 20px;
         }
 
         .result-icon {
@@ -121,6 +122,37 @@
         .result-confidence {
             font-size: 16px;
             color: #666666;
+        }
+
+        /* НОВЫЙ БЛОК: для бизнес-действия */
+        .action-box {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 4px;
+            text-align: center;
+            border: 2px solid;
+            transition: all 0.3s ease;
+        }
+
+        .action-message {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .action-button {
+            padding: 10px 20px;
+            background: #000000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        .action-button:hover {
+            background: #333333 !important;
         }
 
         .spinner {
@@ -140,7 +172,7 @@
     </style>
 </head>
 <body>
-    <h1>Sentiment Analyzer</h1>
+    <h1>🤖 Sentiment Analyzer - Business Actions</h1>
 
     <div id="statusMessage" class="status">Loading...</div>
     <div id="errorMessage" class="error"></div>
@@ -157,6 +189,12 @@
         <div id="resultIcon" class="result-icon"></div>
         <div id="resultLabel" class="result-label"></div>
         <div id="resultConfidence" class="result-confidence"></div>
+    </div>
+
+    <!-- НОВЫЙ БЛОК: для бизнес-действия -->
+    <div id="actionBox" class="action-box">
+        <div id="actionMessage" class="action-message"></div>
+        <button id="actionButton" class="action-button"></button>
     </div>
 
     <script type="module" src="app.js"></script>
